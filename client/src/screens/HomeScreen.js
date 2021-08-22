@@ -33,7 +33,19 @@ const HomeScreen = ({ match }) => {
           Go Back
         </Link>
       )}
-      <h1>Latest Products</h1>
+      <h1
+        style={{
+          color: '#000',
+          fontSize: '26px',
+          fontWeight: '300',
+          textAlign: 'center',
+          textTransform: 'uppercase',
+          position: 'relative',
+          marginTop: '25px',
+        }}
+      >
+        Latest <b style={{ color: '#ffc000' }}>Products</b>
+      </h1>
       {loading ? (
         <Loader />
       ) : error ? (

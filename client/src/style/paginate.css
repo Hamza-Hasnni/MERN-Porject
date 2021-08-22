@@ -1,0 +1,77 @@
+.pagination-outer {
+  text-align: center;
+}
+.pagination {
+  display: inline-flex;
+  padding: 0 30px;
+  z-index: 1;
+  position: relative;
+}
+.pagination:after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), #fff, #fff);
+  z-index: -1;
+  position: absolute;
+  top: 8px;
+  left: 0;
+}
+.pagination li a.page-link {
+  width: 30px;
+  height: 45px;
+  line-height: 50px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  font-size: 22px;
+  font-weight: 600;
+  color: #000;
+  padding: 0;
+  margin: 0 30px 0 0;
+  position: relative;
+  transition: all 0.3s ease 0s;
+}
+.pagination li:last-child a.page-link {
+  margin-right: 0;
+}
+.pagination li.active a.page-link,
+.pagination li a.page-link:hover,
+.pagination li.active a.page-link:hover {
+  background: #fc0069;
+  border-color: #fc0069;
+  color: #fff;
+}
+.pagination li a.page-link:before,
+.pagination li a.page-link:after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: linear-gradient(to right bottom, #fff 49%, #fc0069 50%);
+  opacity: 0;
+  position: absolute;
+  top: 10px;
+  left: -8px;
+  z-index: -1;
+  transition: all 0.3s ease 0s;
+}
+.pagination li a.page-link:after {
+  background: linear-gradient(to left bottom, #fff 49%, #fc0069 50%);
+  left: auto;
+  right: -8px;
+}
+.pagination li.active a.page-link:before,
+.pagination li.active a.page-link:after,
+.pagination li a.page-link:hover:before,
+.pagination li a.page-link:hover:after {
+  top: 0;
+  opacity: 1;
+}
+@media only screen and (max-width: 479px) {
+  .pagination {
+    display: block;
+  }
+  .pagination li {
+    display: inline-block;
+  }
+}

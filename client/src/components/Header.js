@@ -2,10 +2,11 @@ import React from 'react'
 import { Route } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { LinkContainer } from 'react-router-bootstrap'
-import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap'
+import { Navbar, Nav, Container, NavDropdown, Image } from 'react-bootstrap'
 import SearchBox from './SearchBox'
 import { logout } from '../actions/userActions'
-// import './header.css'
+import ShoppingDay from '../image/ShoppingDay.png'
+import '../style/header.css'
 
 const Header = () => {
   const dispatch = useDispatch()
@@ -19,10 +20,16 @@ const Header = () => {
 
   return (
     <header>
-      <Navbar bg='dark' variant='dark' expand='lg' collapseOnSelect>
+      <Navbar className='header-blue' expand='lg' collapseOnSelect>
         <Container>
           <LinkContainer to='/'>
-            <Navbar.Brand>Shopping Day</Navbar.Brand>
+            <Navbar.Brand>
+              <Image
+                style={{ maxWidth: '100px' }}
+                src={ShoppingDay}
+                alt='shoppingDay'
+              />
+            </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>

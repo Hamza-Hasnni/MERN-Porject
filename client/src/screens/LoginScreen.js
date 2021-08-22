@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Form, Button, Row, Col } from 'react-bootstrap'
+import { Row, Col } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
-import FormContainer from '../components/FormContainer'
 import { login } from '../actions/userActions'
+import '../style/login.css'
 
 const LoginScreen = ({ location, history }) => {
   const [email, setEmail] = useState('')
@@ -30,36 +30,55 @@ const LoginScreen = ({ location, history }) => {
   }
 
   return (
-    <FormContainer>
-      <h1>Sign In</h1>
+    <div class='container-fluid'>
       {error && <Message variant='danger'>{error}</Message>}
       {loading && <Loader />}
-      <Form onSubmit={submitHandler}>
-        <Form.Group controlId='email'>
-          <Form.Label>Email Address</Form.Label>
-          <Form.Control
-            type='email'
-            placeholder='Enter email'
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          ></Form.Control>
-        </Form.Group>
+      <div class='row no-gutter'>
+        <div class='col-md-6 d-none d-md-flex bg-image'></div>
 
-        <Form.Group controlId='password'>
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type='password'
-            placeholder='Enter password'
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          ></Form.Control>
-        </Form.Group>
+        <div class='col-md-6 bg-light'>
+          <div class='login d-flex align-items-center py-5'>
+            <div class='col-lg-10 col-xl-7 mx-auto'>
+              <h3 class='display-4'>Welcome Back!!</h3>
+              <p class='text-muted mb-4'>
+                To keep connected with us please login with your personal info.
+              </p>
+              <form onSubmit={submitHandler}>
+                <div class='form-group mb-3'>
+                  <input
+                    id='inputEmail'
+                    type='email'
+                    placeholder='Email address'
+                    required
+                    autofocus
+                    class='form-control rounded-pill border-0 shadow-sm px-4 text-primary'
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </div>
+                <div class='form-group mb-3'>
+                  <input
+                    id='inputPassword'
+                    type='password'
+                    placeholder='Password'
+                    required=''
+                    class='form-control rounded-pill border-0 shadow-sm px-4 text-primary'
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                </div>
 
-        <Button type='submit' variant='primary'>
-          Sign In
-        </Button>
-      </Form>
-
+                <button
+                  type='submit'
+                  class='btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm'
+                >
+                  Sign in
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
       <Row className='py-3'>
         <Col>
           New Customer?{' '}
@@ -68,7 +87,7 @@ const LoginScreen = ({ location, history }) => {
           </Link>
         </Col>
       </Row>
-    </FormContainer>
+    </div>
   )
 }
 

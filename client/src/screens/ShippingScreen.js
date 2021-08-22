@@ -31,6 +31,7 @@ const ShippingScreen = ({ history }) => {
           <Form.Label>Address</Form.Label>
           <Form.Control
             type='text'
+            className='form-control rounded-pill border-0 shadow-sm px-4'
             placeholder='Enter address'
             value={address}
             required
@@ -44,6 +45,7 @@ const ShippingScreen = ({ history }) => {
             type='text'
             placeholder='Enter city'
             value={city}
+            className='form-control rounded-pill border-0 shadow-sm px-4'
             required
             onChange={(e) => setCity(e.target.value)}
           ></Form.Control>
@@ -54,6 +56,7 @@ const ShippingScreen = ({ history }) => {
           <Form.Control
             type='text'
             placeholder='Enter postal code'
+            className='form-control rounded-pill border-0 shadow-sm px-4'
             value={postalCode}
             required
             onChange={(e) => setPostalCode(e.target.value)}
@@ -65,6 +68,7 @@ const ShippingScreen = ({ history }) => {
           <Form.Control
             type='text'
             placeholder='Enter country'
+            className='form-control rounded-pill border-0 shadow-sm px-4'
             value={country}
             required
             onChange={(e) => setCountry(e.target.value)}

@@ -11,7 +11,7 @@ const path = require('path')
 
 db()
 
-app.use(express.static(__dirname + '/public'))
+app.use(express.static(__dirname + '/client/src'))
 app.use(express.json())
 
 app.use('/api/products', productRoutes)
